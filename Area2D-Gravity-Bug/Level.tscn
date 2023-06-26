@@ -1,0 +1,66 @@
+[gd_scene load_steps=7 format=3 uid="uid://kb0p7c445brn"]
+
+[ext_resource type="PackedScene" uid="uid://dp7wonjhmgdxl" path="res://Marble/Marble.tscn" id="1_2u6i2"]
+[ext_resource type="PackedScene" uid="uid://gqj5qjwawyan" path="res://Wall/Wall.tscn" id="2_3obj4"]
+[ext_resource type="PackedScene" uid="uid://b22e70wg7np3n" path="res://Damager/Damager.tscn" id="3_u3rqv"]
+[ext_resource type="PackedScene" uid="uid://xth48gjwa4hn" path="res://Destination/Destination.tscn" id="4_tvwqc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a06pr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5nys1"]
+
+[node name="Level" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(892, -7)
+zoom = Vector2(0.5, 0.5)
+
+[node name="Marble" parent="." instance=ExtResource("1_2u6i2")]
+position = Vector2(141, -437)
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="Wall" parent="Walls" instance=ExtResource("2_3obj4")]
+scale = Vector2(2, 20)
+
+[node name="Wall2" parent="Walls" instance=ExtResource("2_3obj4")]
+position = Vector2(1722, 0)
+scale = Vector2(2, 20)
+
+[node name="Wall3" parent="Walls" instance=ExtResource("2_3obj4")]
+position = Vector2(851, 670)
+rotation = 1.5708
+scale = Vector2(2, 30)
+
+[node name="Wall4" parent="Walls" instance=ExtResource("2_3obj4")]
+position = Vector2(851, -611)
+rotation = 1.5708
+scale = Vector2(2, 30)
+
+[node name="Damager" parent="." node_paths=PackedStringArray("teleportDestination") instance=ExtResource("3_u3rqv")]
+position = Vector2(1585, -459)
+scale = Vector2(2.16, 2.6)
+teleportDestination = NodePath("../Destination")
+
+[node name="Destination" parent="." instance=ExtResource("4_tvwqc")]
+position = Vector2(131, -483)
+
+[node name="Gravity Left" type="Area2D" parent="."]
+gravity_space_override = 3
+gravity_point_center = Vector2(1, 1)
+gravity_direction = Vector2(1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gravity Left"]
+position = Vector2(881, 456)
+scale = Vector2(86.9402, 15.5591)
+shape = SubResource("RectangleShape2D_a06pr")
+
+[node name="Gravity Up" type="Area2D" parent="."]
+gravity_space_override = 3
+gravity_point_center = Vector2(1, -2)
+gravity_direction = Vector2(1, -2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gravity Up"]
+position = Vector2(1482, 32)
+scale = Vector2(21.0064, 60.09)
+shape = SubResource("RectangleShape2D_5nys1")

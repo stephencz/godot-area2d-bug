@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://b22e70wg7np3n"]
+
+[ext_resource type="Texture2D" uid="uid://b8yv1e8thxodj" path="res://Damager/damager.png" id="1_f1dkl"]
+[ext_resource type="Script" path="res://Damager/Damager.gd" id="1_fo2sb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gofwm"]
+size = Vector2(64, 64)
+
+[node name="Damager" type="Area2D"]
+script = ExtResource("1_fo2sb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_f1dkl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_gofwm")

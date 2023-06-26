@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://xth48gjwa4hn"]
+
+[ext_resource type="Texture2D" uid="uid://5naf50hqf7ih" path="res://Destination/teleport.png" id="1_n6nkm"]
+
+[node name="Destination" type="Sprite2D"]
+texture = ExtResource("1_n6nkm")
